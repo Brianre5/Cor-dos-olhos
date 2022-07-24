@@ -7,13 +7,13 @@ from aux import passar_geracao
 # CONSTANTS
 SCREEN_WIDTH = 600
 SCREEN_HEIGHT = 800
-NUMERO_DE_PESSOAS = 100 * 100
-PORCENTAGEM_MARROM = 70  # 70 - 80
-PORCENTAGEM_VERDE = 30  # 5 - 12
-PORCENTAGEM_AZUL = 0  # 8 - 10
+NUMERO_DE_PESSOAS = 64 * 64
+PORCENTAGEM_MARROM = 83  # 70 - 80
+PORCENTAGEM_VERDE = 14  # 5 - 12
+PORCENTAGEM_AZUL = 3  # 8 - 10
 TABELA = [(139, 69, 19), (0, 255, 0), (0, 0, 255)]
 
-# INITUALIZE THE GENERATION 0
+# INITIALIZE THE GENERATION 0
 geracao_atual = geracao(NUMERO_DE_PESSOAS, 0)
 geracao_atual.popular_geracao(PORCENTAGEM_MARROM, PORCENTAGEM_VERDE, PORCENTAGEM_AZUL)
 
@@ -35,7 +35,7 @@ previous_keys = pygame.key.get_pressed()
 def process_inputs(keys, previous_keys):
     global geracao_atual
     if keys[pygame.K_SPACE] and not previous_keys[pygame.K_SPACE]:
-        geracao_atual = passar_geracao()
+        geracao_atual = passar_geracao(geracao_atual)
 
 
 def mostrar_pessoas():
