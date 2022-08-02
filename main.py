@@ -2,7 +2,7 @@ import pygame
 import numpy as np
 import math
 from classes import pessoa, geracao
-from aux import passar_geracao
+from auxi import passar_geracao
 
 # CONSTANTS
 SCREEN_WIDTH = 600
@@ -45,14 +45,9 @@ def mostrar_pessoas():
     for i in range(NUMERO_DE_PESSOAS):
         humano = geracao_atual.comunidade[i]
         color = TABELA[humano.cor]
-        x = 10 + LARGURA * (i % RAIZ)
-        y = 10 + ALTURA * int(i / RAIZ)
-        pygame.draw.circle(
-            screen,
-            color,
-            (x, y),
-            LARGURA / 2,
-        )
+        x = 5 + LARGURA * (i % RAIZ)
+        y = 5 + ALTURA * int(i / RAIZ)
+        pygame.draw.rect(screen, color, (x, y, LARGURA, ALTURA))
 
 
 def escrever_na_tela():
